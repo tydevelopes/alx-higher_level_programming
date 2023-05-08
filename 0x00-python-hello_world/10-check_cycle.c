@@ -7,8 +7,8 @@
  */
 int check_cycle(listint_t *list)
 {
-	const listint_t *node_ptr_A = head;
-	const listint_t *node_ptr_B = head;
+	const listint_t *node_ptr_A = list;
+	const listint_t *node_ptr_B = list;
 
 	if (!list || !list->next)
 		return (0);

@@ -18,5 +18,3 @@ def add_tuple(tuple_a=(), tuple_b=()):
         second_arg_b = tuple_b[1]
 
     return (first_arg_a + second_arg_a, first_arg_b + second_arg_b)
-
-

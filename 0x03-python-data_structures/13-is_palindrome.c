@@ -7,10 +7,14 @@
  */
 int is_palindrome(listint_t **head)
 {
-	size_t list_len = listint_len(*head);
+	int list_len = listint_len(*head);
 	int arr[list_len];
 
+	if (!*head)
+		return (1);
+
 	copy_values(*head, arr);
+	return (is_palindrome_helper(arr, 0, list_len - 1));
 }
 
 /**
@@ -34,7 +38,7 @@ int listint_len(const listint_t *h)
 	return (length);
 }
 /**
- * listint_len - returns the number of elements in a linked listint_t list
+ * copy_values - copy list into array
  * @h: pointer to the list
  * @arr: array to store int values from list
  */
@@ -52,16 +56,6 @@ void copy_values(const listint_t *h, int arr[])
 		i++;
 		current_node = current_node->next;
 	}
-}
-
-/**
- * is_palindrome - check for palindrome
- * @arr: array to check
- * Return: returns 1 if palindrome, 0 otherwise
- */
-int is_palindrome(int arr[], int size)
-{
-	return (is_palindrome_helper(arr, 0, size - 1));
 }
 
 /**

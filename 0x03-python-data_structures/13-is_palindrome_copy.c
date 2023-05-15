@@ -1,8 +1,8 @@
 #include "lists.h"
 
 int listint_len(const listint_t *h);
-void copy_list_values(const listint_t *h, int *arr);
-int is_palindrome_helper(int *arr, int i, int j);
+void copy_list_values(const listint_t *h, int arr[]);
+int is_palindrome_helper(int arr[], int i, int j);
 
 /**
  * is_palindrome - inserts a new node in a sorted list
@@ -11,18 +11,14 @@ int is_palindrome_helper(int *arr, int i, int j);
  */
 int is_palindrome(listint_t **head)
 {
-	int ans;
 	int list_len = listint_len(*head);
-	int *arr = malloc(sizeof(int) * list_len);
+	int arr[list_len];
 
 	if (!*head)
 		return (1);
 
 	copy_list_values(*head, arr);
-	ans = is_palindrome_helper(arr, 0, list_len - 1);
-	free(arr);
-
-	return (ans);
+	return (is_palindrome_helper(arr, 0, list_len - 1));
 }
 
 /**
@@ -50,7 +46,7 @@ int listint_len(const listint_t *h)
  * @h: pointer to the list
  * @arr: array to store int values from list
  */
-void copy_list_values(const listint_t *h, int *arr)
+void copy_list_values(const listint_t *h, int arr[])
 {
 	int i = 0;
 	const listint_t *current_node = NULL;
@@ -73,7 +69,7 @@ void copy_list_values(const listint_t *h, int *arr)
  * @j: current position at end of the string
  * Return: returns 1 if palindrome, 0 otherwise
  */
-int is_palindrome_helper(int *arr, int i, int j)
+int is_palindrome_helper(int arr[], int i, int j)
 {
 	if (i >= j)
 		return (1);

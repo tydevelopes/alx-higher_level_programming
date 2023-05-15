@@ -22,8 +22,5 @@ listint_t *add_nodeint_end(listint_t **head, const int n);
 void free_listint(listint_t *head);
 
 int is_palindrome(listint_t **head);
-int listint_len(const listint_t *h);
-void copy_list_values(const listint_t *h, int arr[]);
-int is_palindrome_helper(int arr[], int i, int j);
 
 #endif /* LISTS_H */

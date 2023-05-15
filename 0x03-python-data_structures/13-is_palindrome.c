@@ -1,5 +1,9 @@
 #include "lists.h"
 
+int listint_len(const listint_t *h);
+void copy_list_values(const listint_t *h, int arr[]);
+int is_palindrome_helper(int arr[], int i, int j);
+
 /**
  * is_palindrome - inserts a new node in a sorted list
  * @head: pointer to head pointer to the list

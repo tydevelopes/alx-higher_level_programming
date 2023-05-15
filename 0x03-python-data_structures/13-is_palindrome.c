@@ -13,7 +13,7 @@ int is_palindrome(listint_t **head)
 	if (!*head)
 		return (1);
 
-	copy_values(*head, arr);
+	copy_list_values(*head, arr);
 	return (is_palindrome_helper(arr, 0, list_len - 1));
 }
 
@@ -38,11 +38,11 @@ int listint_len(const listint_t *h)
 	return (length);
 }
 /**
- * copy_values - copy list into array
+ * copy_list_values - copy list into array
  * @h: pointer to the list
  * @arr: array to store int values from list
  */
-void copy_values(const listint_t *h, int arr[])
+void copy_list_values(const listint_t *h, int arr[])
 {
 	int i = 0;
 	const listint_t *current_node = NULL;

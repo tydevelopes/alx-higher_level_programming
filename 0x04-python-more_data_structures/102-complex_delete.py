@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 def complex_delete(a_dictionary, value):
-    if not value in list(a_dictionary.values()):
+    exist = False
+    for x in list(a_dictionary.values()):
+        if x == value:
+            exist = True
+    if not exist:
         return a_dictionary
     for key, val in a_dictionary.items():
         if val == value:

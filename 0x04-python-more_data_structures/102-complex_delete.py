@@ -6,7 +6,8 @@ def complex_delete(a_dictionary, value):
             exist = True
     if not exist:
         return a_dictionary
-    for key, val in a_dictionary.items():
+    pairs = list(a_dictionary.items())
+    for key, val in pairs:
         if val == value:
             del a_dictionary[key]
     return a_dictionary

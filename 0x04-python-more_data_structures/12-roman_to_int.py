@@ -7,5 +7,5 @@ def roman_to_int(roman_string):
     ans = 0
 
     for ch in roman_string.upper():
-        ans += roman_string[ch]
+        ans += romans[ch]
     return ans

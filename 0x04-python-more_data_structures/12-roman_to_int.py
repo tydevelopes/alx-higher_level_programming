@@ -24,40 +24,40 @@ def roman_to_int(roman_string):
         if temp.startswith("M"):
             temp = temp.replace("M", "", 1)
             ans += romans["M"]
-        elif temp.startwith("CM"):
+        elif temp.startswith("CM"):
             temp = temp.replace("CM", "", 1)
             ans += romans["CM"]
-        elif temp.startwith("D"):
+        elif temp.startswith("D"):
             temp = temp.replace("D", "", 1)
             ans += romans["D"]
-        elif temp.startwith("CD"):
+        elif temp.startswith("CD"):
             temp = temp.replace("CD", "", 1)
             ans += romans["CD"]
-        elif temp.startwith("C"):
+        elif temp.startswith("C"):
             temp = temp.replace("C", "", 1)
             ans += romans["C"]
-        elif temp.startwith("XC"):
+        elif temp.startswith("XC"):
             temp = temp.replace("XC", "", 1)
             ans += romans["XC"]
-        elif temp.startwith("L"):
+        elif temp.startswith("L"):
             temp = temp.replace("L", "", 1)
             ans += romans["L"]
-        elif temp.startwith("XL"):
+        elif temp.startswith("XL"):
             temp = temp.replace("XL", "", 1)
             ans += romans["XL"]
-        elif temp.startwith("X"):
+        elif temp.startswith("X"):
             temp = temp.replace("X", "", 1)
             ans += romans["X"]
-        elif temp.startwith("IX"):
+        elif temp.startswith("IX"):
             temp = temp.replace("IX", "", 1)
             ans += romans["IX"]
-        elif temp.startwith("V"):
+        elif temp.startswith("V"):
             temp = temp.replace("V", "", 1)
             ans += romans["V"]
-        elif temp.startwith("IV"):
+        elif temp.startswith("IV"):
             temp = temp.replace("IV", "", 1)
             ans += romans["IV"]
-        elif temp.startwith("I"):
+        elif temp.startswith("I"):
             temp = temp.replace("I", "", 1)
             ans += romans["I"]
 

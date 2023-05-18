@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone https://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@github.com/holbertonschool/Betty.git
+git clone https://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@github.com/holbertonschool/Betty.git
 cd Betty
 sudo ./install.sh
 

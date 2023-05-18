@@ -9,7 +9,7 @@ def roman_to_int(roman_string):
     temp = roman_string.upper()
 
     while (temp):
-        for key, value in romans:
+        for key, value in romans.items():
             if temp.startswith(key):
                 temp = temp.replace(key, "", 1)
                 ans += value

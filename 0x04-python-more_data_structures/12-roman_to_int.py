@@ -9,8 +9,11 @@ def roman_to_int(roman_string):
     temp = roman_string.upper()
 
     while (temp):
-        for key, value in romans.items():
-            if temp.startswith(key):
-                temp = temp.replace(key, "", 1)
-                ans += value
+        if temp.startswith('M'):
+            temp = temp.replace('M', "", 1)
+            ans += romans['M']
+	elif:
+            temp.startwith('CM'):
+            temp = temp.replace('CM', "", 1)
+            ans += romans['CM']
     return ans

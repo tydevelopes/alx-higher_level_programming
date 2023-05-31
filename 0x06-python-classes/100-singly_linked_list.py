@@ -52,10 +52,14 @@ class SinglyLinkedList:
         """Prints all data in a list"""
         current_node = self.__head
         string = ""
+        empty = ""
+        newline = "\n"
+        i = 0
 
         while current_node is not None:
-            string += f"{current_node.data}\n"
+            string += f"{empty if i == 0 else newline}{current_node.data}"
             current_node = current_node.next_node
+            i += 1
 
         return string
 

@@ -53,7 +53,7 @@ class SinglyLinkedList:
         current_node = self.__head
         string = ""
 
-        while current_node:
+        while current_node is not None:
             string += f"{current_node.data}\n"
             current_node = current_node.next_node
 

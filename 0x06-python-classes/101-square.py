@@ -70,11 +70,11 @@ class Square:
 
         string = ""
         if self.__size == 0:
-            return string
+            string += "\n"
         else:
             for i in range(self.__position[1]):
                 string += "\n"
             for i in range(self.__size):
                 string += f"{self.__position[0] * ' '}"
                 string += f"{self.__size * '#'}\n"
-            return string
+        return string

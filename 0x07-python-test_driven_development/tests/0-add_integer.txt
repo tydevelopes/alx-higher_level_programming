@@ -1,0 +1,75 @@
+The 0-add_integer test module.
+--------------------------------
+
+Using "add_integer"
+-------------------
+
+Import function from module:
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+TESTING GOOD INPUTS
+--------------------
+
+Test int + default arg:
+	>>> add_integer(10)
+	108
+
+Test float + default arg:
+	>>> add_integer(1.5)
+	99
+
+Test negative + default arg:
+	>>> add_integer(-2)
+	96
+
+Test positive + positive:
+	>>> add_integer(2, 4)
+	6
+
+Test negative + positive:
+	>>> add_integer(-1, 1)
+	0
+
+Test positive + negative:
+	>>> add_integer(1, -1)
+	0
+
+TESTING BAD INPUTS
+*********************
+
+Test infinity:
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer.
+
+Test -infinity:
+	>>> add_integer(float('-inf'))
+	Traceback (most recent call last):
+	...
+	OverflowError: cannot convert float infinity to integer.
+
+Test NaN:
+	>>> add_integer(float('Nan'))
+	Traceback (most recent call last):
+	...
+	ValueError: cannot convert float NaN to integer.
+
+Test first arg:
+	>>> add_integer("st", 0)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer.
+
+Test second arg:
+        >>> add_integer(0, "st")
+        Traceback (most recent call last):
+        ...
+        TypeError: b must be an integer.
+
+Test both args:
+        >>> add_integer("st", "st")
+        Traceback (most recent call last):
+        ...
+        TypeError: a must be an integer.

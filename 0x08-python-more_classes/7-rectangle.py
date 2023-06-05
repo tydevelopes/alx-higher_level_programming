@@ -59,18 +59,22 @@ class Rectangle:
 
     def __str__(self):
         """string representation of rectangle"""
+
         string = ""
 
         if self.__width == 0 or self.__height == 0:
             return ""
-        for i in range(self.__height):
+        for _ in range(self.__height):
             string += f"{self.__width * self.print_symbol}\n"
         return string.strip("\n")
 
     def __repr__(self) -> str:
         """represent instance creation"""
+
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
+        """run after an instance is deleted"""
+
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1

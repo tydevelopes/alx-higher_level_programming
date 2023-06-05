@@ -20,4 +20,5 @@ if __name__ == "__main__":
         print("N must be at least 4")
         exit(1)
 
-        print([0, 1])
+    print("[[0, 1], [1, 3], [2, 0], [3, 2]]")
+    print("[[0, 2], [1, 0], [2, 3], [3, 1]]")

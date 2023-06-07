@@ -6,12 +6,8 @@
 def text_indentation(text):
     """prints a text with 2 new lines after each of these characters: ., ? and :"""
 
-    new_str_list = text.replace("?", ".").replace(":", ".").split(".")
+    new_str_list = (
+        text.replace("?", "?\n\n").replace(":", ":\n\n").replace(".", ".\n\n")
+    )
 
-    length = len(new_str_list)
-    for index, string in enumerate(new_str_list):
-        if index != length - 1:
-            print(string.strip())
-            print()
-        else:
-            print(string.strip(), end="")
+    print(new_str_list, end="")

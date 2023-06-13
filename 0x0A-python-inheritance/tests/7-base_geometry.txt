@@ -1,0 +1,112 @@
+Importing the function from the module:
+        >>> bg = __import__("7-base_geometry").BaseGeometry
+
+Module docstring:
+         >>> module = __import__("7-base_geometry").__doc__
+         >>> len(module) > 1
+         True
+
+Cclass docstring:
+         >>> class_doc = bg.__doc__
+         >>> len(class_doc) > 1
+         True
+
+Method docstring:
+	  >>> area_doc = bg.area.__doc__
+	  >>> len(area_doc) > 1
+	  True
+	  >>> validator_doc = bg.integer_validator.__doc__
+          >>> len(validator_doc) > 1
+          True
+
+Call area on baseclass instance:
+	  >>> obj = bg()
+	  >>> obj.area()
+	  Traceback (most recent call last):
+	  ...
+	  Exception: area() is not implemented
+
+Too many arguments for area:
+	  >>> obj.area(1)
+	  Traceback (most recent call last):
+          ...
+	  TypeError: area() takes 1 positional argument but 2 were given
+
+Integer validator for passing integer:
+	  >>> obj.integer_validator("integer", 1)
+
+Integer == 0:
+	  >>> obj.integer_validator("integer", 0)
+	  Traceback (most recent call last):
+          ...
+          ValueError: integer must be greater than 0
+
+Integer < 0;
+	  >>> obj.integer_validator("integer", -3)
+	  Traceback (most recent call last):
+          ...
+          ValueError: integer must be greater than 0
+
+Non-integer types:
+	  >>> obj.integer_validator("float", 1.1)
+          Traceback (most recent call last):
+          ...
+          TypeError: float must be an integer
+	  >>> obj.integer_validator("complex", complex(1, 1))
+          Traceback (most recent call last):
+          ...
+          TypeError: complex must be an integer
+          >>> obj.integer_validator("bool", True)
+	  Traceback (most recent call last):
+          ...
+          TypeError: bool must be an integer
+	  >>> obj.integer_validator("string", "hello")
+          Traceback (most recent call last):
+          ...
+          TypeError: string must be an integer
+	  >>> obj.integer_validator("tuple", (3, 1))
+          Traceback (most recent call last):
+          ...
+          TypeError: tuple must be an integer
+	  >>> obj.integer_validator("list", [1, 2, 3, 4])
+	  Traceback (most recent call last):
+          ...
+          TypeError: list must be an integer
+	  >>> obj.integer_validator("dict", {"key": "value"})
+          Traceback (most recent call last):
+          ...
+          TypeError: dict must be an integer
+	  >>> obj.integer_validator("set", {"x", "y"})
+          Traceback (most recent call last):
+          ...
+          TypeError: set must be an integer
+	  >>> obj.integer_validator("frozenset", frozenset(["x", "y"]))
+          Traceback (most recent call last):
+          ...
+          TypeError: frozenset must be an integer
+	  >>> obj.integer_validator("bytes", b"bytes")
+          Traceback (most recent call last):
+          ...
+          TypeError: bytes must be an integer
+	  >>> obj.integer_validator("bytearrays", bytearray(b"bytes"))
+          Traceback (most recent call last):
+          ...
+          TypeError: bytearrays must be an integer
+
+No arguments to integer_validator:
+	  >>> obj.integer_validator()
+	  Traceback (most recent call last):
+          ...
+	  TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Only 1 argument to integer_validator:
+	  >>> obj.integer_validator("integer")
+	  Traceback (most recent call last):
+          ...
+	  TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Too many arguments:
+	  >>> obj.integer_validator("integer", 1, 2, 3)
+	  Traceback (most recent call last):
+          ...
+	  TypeError: integer_validator() takes 3 positional arguments but 4 were given

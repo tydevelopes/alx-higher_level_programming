@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Module multiply matrices using NumPy.
-"""
+"""Module multiply matrices using NumPy"""
 import numpy
 
 

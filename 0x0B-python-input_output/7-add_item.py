@@ -15,7 +15,11 @@ if __name__ == "__main__":
         for i in range(1, len(sys.argv)):
             args.append(sys.argv[i])
 
-    content = load_from_json_file(filename)
+    try:
+        content = load_from_json_file(filename)
+    except FileNotFoundError:
+        content = []
+
     new_content = content + args
 
     save_to_json_file(new_content, filename)

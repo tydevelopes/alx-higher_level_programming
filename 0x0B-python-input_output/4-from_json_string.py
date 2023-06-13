@@ -5,7 +5,7 @@
 import json
 
 
-def to_json_string(my_str):
+def from_json_string(my_str):
     """deserialize json string"""
 
     return json.loads(my_str)

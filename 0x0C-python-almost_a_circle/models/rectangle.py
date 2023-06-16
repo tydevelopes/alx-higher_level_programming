@@ -90,11 +90,11 @@ class Rectangle(Base):
         """string representation of rectangle"""
 
         # print position
-        for _ in range(self.__x):
+        for _ in range(self.__y):
             print()
 
         for _ in range(self.__height):
-            print(self.__y * " ", end="")
+            print(self.__x * " ", end="")
             print(f"{self.__width * '#'}")
 
     def __str__(self):
@@ -118,6 +118,7 @@ class Rectangle(Base):
                 self.width = args[1]
                 self.height = args[2]
                 self.x = args[3]
+                self.y = args[4]
             except IndexError:
                 return
         else:
@@ -131,3 +132,14 @@ class Rectangle(Base):
                 self.x = kwargs.get("x")
             if kwargs.get("y") is not None:
                 self.y = kwargs.get("y")
+
+    def to_dictionary(self):
+        """returns dict rep of Rectangle"""
+
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y,
+        }

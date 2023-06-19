@@ -36,11 +36,9 @@ class Base:
         if list_objs is None:
             json_str = ""
         else:
-            list_dicts = [
-                obj.to_dictionary() for obj in list_objs if isinstance(obj, Base)
-            ]
+            ld = [o.to_dictionary() for o in list_objs if isinstance(o, Base)]
 
-            json_str = cls.to_json_string(list_dicts)
+            json_str = cls.to_json_string(ld)
 
         with open(filename, mode="w", encoding="utf-8") as f:
             f.write(json_str)

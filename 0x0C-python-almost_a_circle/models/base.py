@@ -3,6 +3,7 @@
 """Module defines a base class"""
 
 import json
+import csv
 
 
 class Base:
@@ -77,4 +78,40 @@ class Base:
                 obj_list = cls.from_json_string(f.read())
                 return [cls.create(**obj) for obj in obj_list]
         except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save csv rep of list_objs to file"""
+
+        filename = cls.__name__ + ".csv"
+        with open(filename, mode="w", encoding="utf-8", newline="") as csvfile:
+            if list_objs is None or list_objs == []:
+                csvfile.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """save csv rep of list_objs to file"""
+
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, mode="r", encoding="utf-8", newline="") as csvfile:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
+                list_dicts = [
+                    dict([k, int(v)] for k, v in d.items()) for d in list_dicts
+                ]
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
             return []

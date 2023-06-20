@@ -101,9 +101,9 @@ class Base:
     def load_from_file_csv(cls):
         """save csv rep of list_objs to file"""
 
-        filename = cls.__name__ + ".csv"
+        fn = cls.__name__ + ".csv"
         try:
-            with open(filename, mode="r", encoding="utf-8", newline="") as csvfile:
+            with open(fn, mode="r", encoding="utf-8", newline="") as csvfile:
                 if cls.__name__ == "Rectangle":
                     fieldnames = ["id", "width", "height", "x", "y"]
                 else:
